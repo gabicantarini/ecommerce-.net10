@@ -6,7 +6,8 @@ using System.Xml.Linq;
 
 namespace Ecommerce.Core.Entities
 {
-    public class Customer : BaseEntity    {
+    public class Customer : BaseEntity    
+    {
 
         public Customer(string name, string email, DateTime dateOfBirth, string document)
         {
