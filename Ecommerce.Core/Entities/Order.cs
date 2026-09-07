@@ -17,7 +17,7 @@ namespace Ecommerce.Core.Entities
             ShippingPrice = shippingPrice;
             TotalProductsPrice = totalProductsPrice;
             Items = items;
-            Updates = updates;
+            Updates = [];
         }
 
         public Guid IdCostumer { get; set; }
