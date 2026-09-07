@@ -6,7 +6,7 @@ namespace Ecommerce.Core.Entities
 {
     public class Product : BaseEntity
     {
-        public Product(string title, string description, decimal price, string brand, int quantity, ProductCategory category)
+        public Product(string title, string description, decimal price, string brand, int quantity, Guid idCategory, ProductCategory category)
         {
             Title = title;
             Description = description;
@@ -14,6 +14,7 @@ namespace Ecommerce.Core.Entities
             Brand = brand;
             Quantity = quantity;
             Category = category;
+            IdCategory = idCategory;
         }
 
         public string Title { get; set; }
@@ -21,6 +22,8 @@ namespace Ecommerce.Core.Entities
         public decimal Price { get; set; }
         public string Brand { get; set; }
         public int Quantity { get; set; }
+
+        public Guid IdCategory { get; set; }
         public ProductCategory Category { get; set; }
     }
 }
