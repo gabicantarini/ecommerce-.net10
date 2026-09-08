@@ -12,8 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Services\Commands\Products\UpdateProduct\" />
-    <Folder Include="Services\Queries\Products\GetAllProducts\" />
-    <Folder Include="Services\Queries\Products\GetProductDetails\" />
   </ItemGroup>
 
 </Project>
