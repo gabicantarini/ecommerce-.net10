@@ -6,9 +6,9 @@ using System.Text;
 namespace Ecommerce.Application.Services.Commands.Products.CreateProduct
 {
     public class CreateProductCommandHandler
-        : IHandler<CreateProductCommand, Guid>
+        : IHandler<CreateProductCommand, ResultViewModel<Guid>>
     {
-        public Task<Guid> HandleAsync(CreateProductCommand? request) //have important entities to create a product, but we need to implement the logic to handle the command and return the product ID
+        public Task<ResultViewModel<Guid>> HandleAsync(CreateProductCommand? request) //have important entities to create a product, but we need to implement the logic to handle the command and return the product ID
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,4 @@
-﻿namespace Ecommerce.Application.Services.Commands.Customers.CreateCustomerAddressCommand;
+﻿namespace Ecommerce.Application.Services.Commands.Customers.CreateCustomerAddress;
 
 public class CreateCustomerAddressCommand
 {
