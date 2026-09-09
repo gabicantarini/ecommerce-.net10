@@ -2,17 +2,23 @@
 {
     public class OrderItem : BaseEntity
     {
-        public OrderItem(Guid idOrder, Guid idProduct, int quantity, decimal price)
+        protected OrderItem() { }
+        public OrderItem(Guid idProduct, int quantity)
         {
-            IdOrder = idOrder;
             IdProduct = idProduct;
             Quantity = quantity;
-            Price = price;
         }
 
-        public Guid IdOrder { get; set; }
         public Guid IdProduct { get; set; }
+        public Product Product { get; set; }
+        public Guid IdOrder { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
-    } 
+        //public OrderItemReview Review { get; set; }
+
+        public void SetItemPrice(decimal price)
+        {
+            Price = price;
+        }
+    }
 }

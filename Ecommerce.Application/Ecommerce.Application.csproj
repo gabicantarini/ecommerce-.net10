@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Commands\Orders\" />
     <Folder Include="Services\Commands\Products\UpdateProduct\" />
   </ItemGroup>
 
