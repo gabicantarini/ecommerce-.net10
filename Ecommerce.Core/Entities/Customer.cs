@@ -25,6 +25,8 @@ namespace Ecommerce.Core.Entities
         public string Document { get; set; }
 
         public List<CustomerAddress> Addresses { get; set; }
+        public List<Order> Orders { get; set; }
 
+        public List<OrderItemReview> Reviews { get; set; }
     }
 }
