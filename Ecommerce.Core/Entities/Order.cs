@@ -7,9 +7,10 @@ namespace Ecommerce.Core.Entities
 {
     public class Order : BaseEntity
     {
-        public Order(Guid idCostumer, DateTime? confirmationDate, DateTime? shippingDate, OrderStatus status, Guid deliveryAddressId, decimal shippingPrice, decimal totalProductsPrice, List<OrderItem> items, List<OrderUpdate> updates)
+        public Order(Guid idCostumer, Customer customer, DateTime? confirmationDate, DateTime? shippingDate, OrderStatus status, Guid deliveryAddressId, decimal shippingPrice, decimal totalProductsPrice, List<OrderItem> items, List<OrderUpdate> updates)
         {
             IdCostumer = idCostumer;
+            Customer = customer;
             ConfirmationDate = confirmationDate;
             ShippingDate = shippingDate;
             Status = status;
@@ -17,10 +18,11 @@ namespace Ecommerce.Core.Entities
             ShippingPrice = shippingPrice;
             TotalProductsPrice = totalProductsPrice;
             Items = items;
-            Updates = [];
+            Updates = updates;
         }
 
         public Guid IdCostumer { get; set; }
+        public Customer Customer { get; set; }
         public DateTime? ConfirmationDate { get; set; } //after payment confirmation
         public DateTime? ShippingDate { get; set; }
         public OrderStatus Status { get; set; }
