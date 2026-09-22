@@ -2,7 +2,7 @@
 {
     public class OrderItem : BaseEntity
     {
-        protected OrderItem() { }
+        //protected OrderItem() { }
         public OrderItem(Guid idProduct, int quantity)
         {
             IdProduct = idProduct;
@@ -14,11 +14,11 @@
         public Guid IdOrder { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
-        //public OrderItemReview Review { get; set; }
+        public OrderProductReview Review { get; set; }
 
-        public void SetItemPrice(decimal price)
-        {
-            Price = price;
-        }
+        //public void SetItemPrice(decimal price)
+        //{
+        //    Price = price;
+        //}
     }
 }
