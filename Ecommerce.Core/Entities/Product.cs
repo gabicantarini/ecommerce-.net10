@@ -25,5 +25,7 @@ namespace Ecommerce.Core.Entities
 
         public Guid IdCategory { get; set; }
         public ProductCategory Category { get; set; }
+        public List<OrderProductReview> Reviews { get; set; } = [];
+        public List<ProductImage> Images { get; set; } = [];
     }
 }
