@@ -1,4 +1,4 @@
-//using Ecommerce.Core.Entities;
+using Ecommerce.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Infrastructure.Persistence;
@@ -12,7 +12,7 @@ public class EcommerceDbContext : DbContext
     public DbSet<CustomerAddress> CustomerAddresses { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
-    public DbSet<OrderItemReview> OrderProductReviews { get; set; }
+    public DbSet<OrderProductReview> OrderProductReviews { get; set; } //OrderItemReview
     public DbSet<OrderUpdate> OrderUpdates { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductCategory> ProductCategories { get; set; }
@@ -27,16 +27,16 @@ public class EcommerceDbContext : DbContext
             e.HasMany(c => c.Addresses)
                 .WithOne()
                 .HasForeignKey(a => a.IdCustomer)
-                .OnDelete(DeleteBehavior.Restrict);
-            
+                .OnDelete(DeleteBehavior.Restrict); // to delete an entity it will be restricted if it has related entities. We do not want to delete all orders of a customer when we delete the customer, we want to restrict the deletion if there are related order.
+
             e.HasMany(c => c.Orders)
                 .WithOne(o => o.Customer)
-                .HasForeignKey(o => o.IdCustomer)
+                .HasForeignKey(o => o.Customer) //IdCustomer
                 .OnDelete(DeleteBehavior.Restrict);
             
-            e.HasMany(c => c.Reviews)
+            e.HasMany(c => c.Reviews) //Reviews
                 .WithOne(r => r.Customer)
-                .HasForeignKey(r => r.IdCustomer)
+                .HasForeignKey(r => r.Customer) //IdCustomer
                 .OnDelete(DeleteBehavior.Restrict);
         });
         
@@ -66,7 +66,7 @@ public class EcommerceDbContext : DbContext
 
             e.HasOne(oi => oi.Review)
                 .WithOne(opr => opr.OrderItem)
-                .HasForeignKey<OrderItemReview>(opr => opr.IdOrderItem)
+                .HasForeignKey<OrderProductReview>(opr => opr.IdOrderItem)
                 .OnDelete(DeleteBehavior.Restrict);
             
             e.HasOne(oi => oi.Product)
@@ -75,7 +75,7 @@ public class EcommerceDbContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict);
         });
         
-        builder.Entity<OrderItemReview>(e =>
+        builder.Entity<OrderProductReview>(e =>
         {
             e.HasKey(c => c.Id);
         });
